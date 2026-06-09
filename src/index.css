@@ -12,4 +12,5 @@ body,
   font-family: 'Inter', system-ui, sans-serif;
   background-color: #f4f5f6;
   color: #434b54;
+  overflow: hidden;
 }
