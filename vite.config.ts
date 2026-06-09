@@ -16,5 +16,9 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'html'],
     },
+    api: {
+      host: '127.0.0.1',
+      port: 45000,
+    },
   },
 });
