@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import MessageList from './MessageList';
+import MessageList from './MessageList.tsx';
 import type { Message } from '../types/message';
 
 describe('MessageList', () => {
@@ -10,7 +10,6 @@ describe('MessageList', () => {
   ];
 
   beforeEach(() => {
-    // Mock scrollIntoView
     window.HTMLElement.prototype.scrollIntoView = vi.fn();
   });
 
@@ -20,7 +19,8 @@ describe('MessageList', () => {
     expect(screen.getByText('Hello')).toBeInTheDocument();
     expect(screen.getByText('Alice')).toBeInTheDocument();
     expect(screen.getByText('Hi there')).toBeInTheDocument();
-    expect(screen.getByText('Donato')).toBeInTheDocument();
+    // Current user's name should NOT be rendered in bubbles
+    expect(screen.queryByText('Donato')).not.toBeInTheDocument();
   });
 
   it('renders empty state message when no messages are provided', () => {

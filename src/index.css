@@ -14,3 +14,69 @@ body,
   color: #434b54;
   overflow: hidden;
 }
+
+/* Custom global CSS classes for theme colors */
+.bg-doodle-bg {
+  background-color: #f4f5f6;
+}
+
+.border-doodle-border {
+  border-color: #d4dade;
+}
+
+.text-doodle-text {
+  color: #434b54;
+}
+
+.text-doodle-muted {
+  color: #b3bcc3;
+}
+
+.placeholder-doodle-muted::placeholder {
+  color: #b3bcc3;
+}
+
+.bg-doodle-form-bg {
+  background-color: #3996d2;
+}
+
+.border-doodle-input-border {
+  border-color: #2f76a2;
+}
+
+.caret-doodle-input-border {
+  caret-color: #2f76a2;
+}
+
+.bg-doodle-send-button {
+  background-color: #ff7e67;
+}
+
+.bg-doodle-send-button:hover:not(:disabled) {
+  background-color: #ff6f54;
+}
+
+.bg-doodle-send-button:active:not(:disabled) {
+  background-color: #e5644c;
+}
+
+.bg-doodle-bubble-own {
+  background-color: #fcf7c8;
+}
+
+.dark .bg-doodle-bubble-own {
+  background-color: #85359b;
+  border-color: #722c85;
+}
+
+.bg-doodle-bubble-other {
+  background-color: #ffffff;
+}
+
+.text-doodle-send-button {
+  color: #ff7e67;
+}
+
+.text-doodle-send-button:hover {
+  color: #ff6f54;
+}
