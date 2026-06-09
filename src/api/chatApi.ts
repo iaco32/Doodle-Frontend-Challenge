@@ -1,6 +1,5 @@
 import type { Message } from '../types/message';
 
-// Helper to get configuration
 const getApiConfig = () => {
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const token = import.meta.env.VITE_API_TOKEN || '';

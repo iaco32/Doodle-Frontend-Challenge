@@ -100,7 +100,6 @@ function ChatScreen({ currentUser, onLogout, theme, onToggleTheme }: ChatScreenP
 
   return (
     <div className="flex h-full w-full max-w-[640px] flex-col bg-white dark:bg-slate-900 shadow-md md:h-[90vh] md:rounded-lg md:border md:border-doodle-border md:dark:border-slate-800 overflow-hidden">
-      {/* Header with bg-doodle-form-bg (keeps blue color in both modes) */}
       <header className="flex items-center justify-between border-b border-doodle-border dark:border-slate-800 bg-doodle-form-bg px-6 py-4 shadow-sm z-20">
         <div className="flex items-center space-x-3">
           <img
@@ -163,7 +162,6 @@ function ChatScreen({ currentUser, onLogout, theme, onToggleTheme }: ChatScreenP
           backgroundRepeat: 'repeat',
         }}
       >
-        {/* Dark Mode Overlay to dim background doodle pattern (keeps doodles visible but dark) */}
         <div className="absolute inset-0 bg-slate-950/45 pointer-events-none hidden dark:block z-0" />
         
         <div className="relative z-10 flex flex-1 flex-col overflow-hidden">

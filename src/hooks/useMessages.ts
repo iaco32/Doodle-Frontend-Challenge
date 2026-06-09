@@ -9,7 +9,7 @@ export function useMessages(authorName: string) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Use a ref to keep track of messages to avoid stale closures in polling
+  // ref to avoid stale closure in the polling callback
   const messagesRef = useRef<Message[]>([]);
   messagesRef.current = messages;
 
@@ -19,9 +19,6 @@ export function useMessages(authorName: string) {
         setIsLoading(true);
       }
       const data = await getMessages();
-      
-      // Sort messages chronologically (oldest first for a standard chat UI)
-      // Usually chat APIs return them in some order. We sort them by createdAt to be safe.
       const sorted = [...data].sort(
         (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
@@ -41,10 +38,7 @@ export function useMessages(authorName: string) {
     try {
       const newMsg = await postMessage(text, authorName);
       setMessages((prev) => {
-        // Double check if message already exists in array to avoid duplicates
-        if (prev.some((m) => m._id === newMsg._id)) {
-          return prev;
-        }
+        if (prev.some((m) => m._id === newMsg._id)) return prev;
         return [...prev, newMsg];
       });
     } catch (err) {
@@ -53,7 +47,7 @@ export function useMessages(authorName: string) {
     }
   }, [authorName]);
 
-  // Initial fetch and setup polling
+  // kick off initial load and start polling
   useEffect(() => {
     fetchMessages(true);
 
